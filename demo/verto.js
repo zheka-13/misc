@@ -468,8 +468,8 @@ function init() {
         tag: "webcam",
         ringFile: "sounds/bell_ring2.wav",
         videoParams: {
-            "minWidth": "1280",
-            "minHeight": "720",
+            "minWidth": "640",
+            "minHeight": "480",
 	    "minFrameRate": 30
         },
 	audioParams: {
