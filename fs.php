@@ -1,5 +1,8 @@
 <?php
 $request  = $_POST;
+
+error_log(print_r($request, true));
+
 $not_found = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="freeswitch/xml">
   <section name="result">
