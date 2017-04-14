@@ -30,6 +30,7 @@ if ($request["action"]=="sip_auth"){
             </domain>
           </section>
         </document>';
+        echo $reply;
         die();
     }
 }
