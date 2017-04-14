@@ -1,7 +1,7 @@
 <?php
 $request  = $_POST;
 
-error_log(print_r($request, true));
+//error_log(print_r($request, true));
 
 $not_found = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="freeswitch/xml">
@@ -10,8 +10,8 @@ $not_found = '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
   </section>
 </document>';
 
-if ($request["action"]=="sip_auth"){
-    $login = $request["sip_auth_username"];
+if ($request["action"]=="sip_auth" or $request["action"]=="jsonrpc-authenticate" ){
+    $login = $request["user"];
     if ($login=="test"){
         $reply = '<document type="freeswitch/xml">
           <section name="directory">
@@ -24,7 +24,7 @@ if ($request["action"]=="sip_auth"){
                  <users>
                   <user id="'.$login.'">
                     <params>
-                      <param name="password" value="some_password"/>
+                      <param name="password" value="test"/>
                     </params>
                   </user>
                  </users>
