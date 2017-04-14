@@ -16,15 +16,17 @@ if ($request["action"]=="sip_auth" or $request["action"]=="jsonrpc-authenticate"
         $reply = '<document type="freeswitch/xml">
           <section name="directory">
             <domain name="'.$request['domain'].'">
-              <params>
-                <param name="dial-string" value="{presence_id=${dialed_user}@${dialed_domain}}${sofia_contact(${dialed_user}@${dialed_domain})}"/>
-              </params>
               <groups>
                 <group name="default">
                  <users>
                   <user id="'.$login.'">
                     <params>
                       <param name="password" value="test"/>
+                      <param name="verto-context" value="public"/>
+                      <param name="verto-dialplan" value="XML"/>
+                      <param name="jsonrpc-allowed-methods" value="verto"/>
+                      <param name="jsonrpc-allowed-event-channels" value="demo,conference,presence"/>
+                      <param name="dial-string" value="${verto_contact ${dialed_user}@${dialed_domain}}"/>
                     </params>
                   </user>
                  </users>
