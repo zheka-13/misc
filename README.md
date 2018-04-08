@@ -1,2 +1,2 @@
-# verto
-verto phone
+# misc things and scrips
+
